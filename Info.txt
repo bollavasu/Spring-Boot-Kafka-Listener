@@ -1,0 +1,13 @@
+
+https://github.com/TechPrimers/spring-boot-kafka-consumer-example
+
+1)Create Kafka Topic
+  bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Kafka_Example
+2)Publish messages to Kafka Topic via Console
+  bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic Kafka_Example
+  
+We need the following for Kafka Listener
+1)Kafka Configuration class 
+  KafkaConfiguration.java    (@EnableKafka)
+2)Kafka Listener class  
+  @KafkaListener(topics = "Kafka_Example", group = "group_id") method will be called automatically when a message comes to the topic
